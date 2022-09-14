@@ -17,11 +17,13 @@ class CarsFilterController extends Controller
         if(!$date){
             $date =  Carbon::now();
         }
-        $users = User::whereHas('cars', function($q) {
-            $q->where('date_to', '<', $date);
+        
+        $users = User::whereHas('cars', function($q, $date) {
+        
+            $q->firstwhere('date_to', '<', $date);
         })->get();
 
-        return $users;
+        return response()->json($users);
     }
 
 }
