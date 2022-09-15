@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarsController;
+use App\Http\Controllers\Api\CarsFilterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::apiResource('cars', CarsController::class);
-Route::get('/filter/{date?}', [CarsController::class, 'show']);
+Route::get('/filter/{date?}', [CarsFilterController::class]);
