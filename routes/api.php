@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::apiResource('cars', CarsController::class);
-Route::get('/filter/{date?}', [CarsFilterController::class]);
+Route::get('/filter/{date?}', [CarsFilterController::class, 'filterCarsToday']);
